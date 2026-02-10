@@ -1,3 +1,6 @@
+// Name: Eimaz Khan
+// CS 3502 - Assignment 2
+
 / ============================================
 // buffer.h - Shared definitions (INCOMPLETE - You must complete this!)
 // ============================================
@@ -34,5 +37,6 @@
 //   - An array of items
 //   - Variables to track the buffer state
 //   - Any other fields needed for synchronization
+
 
 #endif
