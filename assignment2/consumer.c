@@ -1,3 +1,6 @@
+// Name: Eimaz Khan
+// CS 3502 - Assignment 2
+
 // ============================================
 // consumer.c - Consumer process starter
 // ============================================
@@ -69,4 +72,5 @@ int main(int argc, char* argv[]) {
     printf("Consumer %d: Finished consuming %d items\n", consumer_id, num_items);
     cleanup();
     return 0;
+
 }
