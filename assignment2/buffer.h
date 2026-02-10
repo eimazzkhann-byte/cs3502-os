@@ -1,9 +1,7 @@
-HEAD
 // Name: Eimaz Khan
 // CS 3502 - Assignment 2
+// buffer.h - Shared definitions
 
-// buffer.h - Shared definitions (INCOMPLETE - You must complete this!)
-// ============================================
 #ifndef BUFFER_H
 #define BUFFER_H
 
@@ -22,68 +20,24 @@ HEAD
 // Constants for shared memory and semaphores
 #define BUFFER_SIZE 10
 #define SHM_KEY 0x1234
-#define SEM_MUTEX "/sem_mutex"
-#define SEM_EMPTY "/sem_empty"
-#define SEM_FULL "/sem_full"
 
-// TODO: Define the item structure (item_t)
-// Each item should contain:
-//   - The data value
-//   - Which producer created it
-//   - Any other fields you think are necessary
-
-// TODO: Define the shared buffer structure (shared_buffer_t)
-// The buffer should contain:
-//   - An array of items
-//   - Variables to track the buffer state
-//   - Any other fields needed for synchronization
-
-
-#endif
-
-
-=======
-/* ============================================
-   Name: Eimaz Khan
-   CS 3502 - Assignment 2
-   buffer.h - Shared definitions
-   ============================================ */
-
-#ifndef BUFFER_H
-#define BUFFER_H
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#include <semaphore.h>
-#include <fcntl.h>
-#include <string.h>
-#include <signal.h>
-#include <time.h>
-
-/* Constants for shared memory and semaphores */
-#define BUFFER_SIZE 10
-#define SHM_KEY 0x1234
-
+// Named semaphores (must start with '/')
 #define SEM_MUTEX "/sem_mutex"
 #define SEM_EMPTY "/sem_empty"
 #define SEM_FULL  "/sem_full"
 
-/* Item placed into the shared buffer */
+// Item stored in the bounded buffer
 typedef struct {
-    int value;
-    int producer_id;
+    int value;        // The data
+    int producer_id;  // Which producer created this item
 } item_t;
 
-/* Shared circular buffer stored in shared memory */
+// Shared buffer structure in shared memory
 typedef struct {
-    item_t items[BUFFER_SIZE];
-    int head;
-    int tail;
-    int count;
+    item_t buffer[BUFFER_SIZE];
+    int head;   // Next write position (producer)
+    int tail;   // Next read position (consumer)
+    int count;  // Current number of items
 } shared_buffer_t;
 
 #endif
->>>>>>> b2ace31 (Assignment 2: bounded buffer with shared memory + semaphores)
