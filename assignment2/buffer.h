@@ -1,3 +1,4 @@
+HEAD
 // Name: Eimaz Khan
 // CS 3502 - Assignment 2
 
@@ -41,3 +42,48 @@
 #endif
 
 
+=======
+/* ============================================
+   Name: Eimaz Khan
+   CS 3502 - Assignment 2
+   buffer.h - Shared definitions
+   ============================================ */
+
+#ifndef BUFFER_H
+#define BUFFER_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <semaphore.h>
+#include <fcntl.h>
+#include <string.h>
+#include <signal.h>
+#include <time.h>
+
+/* Constants for shared memory and semaphores */
+#define BUFFER_SIZE 10
+#define SHM_KEY 0x1234
+
+#define SEM_MUTEX "/sem_mutex"
+#define SEM_EMPTY "/sem_empty"
+#define SEM_FULL  "/sem_full"
+
+/* Item placed into the shared buffer */
+typedef struct {
+    int value;
+    int producer_id;
+} item_t;
+
+/* Shared circular buffer stored in shared memory */
+typedef struct {
+    item_t items[BUFFER_SIZE];
+    int head;
+    int tail;
+    int count;
+} shared_buffer_t;
+
+#endif
+>>>>>>> b2ace31 (Assignment 2: bounded buffer with shared memory + semaphores)
