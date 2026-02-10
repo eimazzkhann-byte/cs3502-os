@@ -1,3 +1,6 @@
+// Name: Eimaz Khan
+// CS 3502 - Assignment 2
+
 // ============================================
 // producer.c - Producer process starter
 // ============================================
@@ -76,4 +79,5 @@ int main(int argc, char* argv[]) {
     printf("Producer %d: Finished producing %d items\n", producer_id, num_items);
     cleanup();
     return 0;
+
 }
