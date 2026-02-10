@@ -1,9 +1,6 @@
 // Name: Eimaz Khan
 // CS 3502 - Assignment 2
 
-cd ~/cs3502-os/assignment2
-nano buffer.h
-
 // buffer.h - Shared definitions (INCOMPLETE - You must complete this!)
 // ============================================
 #ifndef BUFFER_H
@@ -42,4 +39,5 @@ nano buffer.h
 
 
 #endif
+
 
