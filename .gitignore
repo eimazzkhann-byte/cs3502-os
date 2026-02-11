@@ -14,3 +14,7 @@ logwriter
 # Editor backups
 *~
 *.swp
+
+# ignore compiled binaries
+assignment2/producer
+assignment2/consumer
